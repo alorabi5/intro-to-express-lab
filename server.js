@@ -64,12 +64,14 @@ app.get('/shoes', (req, res) => {
 
 
     if(min){
-        setShoes = setShoes.filter(shoes => shoes.price <=  min);
+        setShoes = setShoes.filter(shoes => shoes.price >=  min);
     }
-    else if(max){
-        setShoes = setShoes.filter(shoes => shoes.price >=  max);
+    if(max){
+        console.log(setShoes)
+        setShoes = setShoes.filter(shoes => shoes.price <=  max);
+
     }
-    else if(type){
+    if(type){
         setShoes = setShoes.filter(shoes => shoes.type ===  type);
     }
 
